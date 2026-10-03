@@ -27,6 +27,9 @@ a{color:inherit}
 .env .flap{position:absolute;left:0;right:0;top:0;height:56%;transform-origin:50% 0;background:linear-gradient(180deg,#f5b7c4,#ee9fb1);clip-path:polygon(0 0,100% 0,50% 100%);z-index:6;transition:transform 1.3s cubic-bezier(.6,.05,.2,1) .2s}
 .env .front{position:absolute;inset:0;z-index:5;background:linear-gradient(160deg,#fbd5dc,#f4b3c1);clip-path:polygon(0 0,50% 52%,100% 0,100% 100%,0 100%);border-radius:10px;transition:opacity .6s ease 1.3s}
 .env .seal{position:absolute;left:50%;top:50%;width:62px;height:62px;margin:-31px 0 0 -31px;border-radius:50%;z-index:7;background:radial-gradient(circle at 35% 30%,#ef8fa4,#c4566f);box-shadow:0 4px 10px rgba(120,30,50,.35);display:grid;place-items:center;color:#fff;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:26px;transition:opacity .4s ease .1s,transform .6s ease}
+.env .envname{position:absolute;left:0;right:0;bottom:15%;z-index:7;text-align:center;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:clamp(30px,5vw,56px);color:#fff;text-shadow:0 2px 12px rgba(160,50,80,.35);transition:opacity .4s}
+.env .envname small{display:block;font-style:normal;font-size:clamp(10px,1.1vw,13px);letter-spacing:.4em;font-weight:500;margin-top:2px}
+.opened .env .envname{opacity:0}
 .opened .env .flap{transform:rotateX(180deg);z-index:1}
 .opened .env .front{opacity:0}
 .opened .env .seal{opacity:0;transform:scale(.4)}
@@ -38,11 +41,13 @@ a{color:inherit}
 .opened .card{transform:none;opacity:1}
 .copy{padding:clamp(18px,4vw,48px);display:flex;flex-direction:column;justify-content:center}
 .eyebrow{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(14px,1.6vw,19px);letter-spacing:.2em;color:var(--rose)}
-h1{font-family:"Zen Old Mincho",serif;font-weight:500;font-size:clamp(21px,3.2vw,38px);line-height:1.6;letter-spacing:.1em;margin:8px 0 10px}
+h1{font-family:"Zen Old Mincho",serif;font-weight:500;font-size:clamp(17px,2.2vw,27px);line-height:1.7;letter-spacing:.1em;margin:14px 0 10px;color:var(--ink)}
 h1 .ch{display:inline-block}
 .anim .opened h1 .ch{animation:ch .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(2.4s + var(--n)*60ms)}
 @keyframes ch{from{opacity:0;transform:translateY(.6em);filter:blur(4px)}}
-.brand{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:clamp(20px,2.4vw,30px);color:var(--ink);margin-bottom:10px}
+.brand{position:relative;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:clamp(34px,4.6vw,58px);line-height:1.05;letter-spacing:.03em;color:var(--rose);margin-bottom:4px}
+.brand small{display:block;font-size:clamp(12px,1.2vw,15px);letter-spacing:.24em;font-weight:500;color:var(--sub);margin-top:6px}
+.brand .orn{display:block;width:46px;height:2px;background:linear-gradient(90deg,var(--pink2),transparent);margin-bottom:10px}
 .sub{font-size:clamp(12.5px,1.25vw,15px);color:var(--sub);line-height:1.8;margin-bottom:14px}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
 .chip{font-size:12px;border:1px solid var(--pink2);color:var(--rose);padding:1px 12px;border-radius:999px;background:#fff}
@@ -62,19 +67,21 @@ h1 .ch{display:inline-block}
 .dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.6);transition:all .4s}
 .dots i.on{width:20px;border-radius:4px;background:#fff}
 
-.tap{white-space:nowrap;position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:9;font-size:13px;color:var(--rose);letter-spacing:.14em;transition:opacity .5s;background:rgba(255,255,255,.8);padding:2px 16px;border-radius:999px}
+.tap{white-space:nowrap;position:absolute;left:50%;bottom:6px;transform:translateX(-50%);z-index:9;font-size:13px;color:var(--rose);letter-spacing:.14em;transition:opacity .5s;background:rgba(255,255,255,.8);padding:2px 16px;border-radius:999px}
 .opened .tap{opacity:0;pointer-events:none}
 .env{cursor:pointer}.opened .env{cursor:default}
 
 @media(max-width:760px){
+  .env .envname{bottom:30%;font-size:40px}
   .hero{padding:18px 12px}
   .env{aspect-ratio:auto;height:calc(100svh - var(--demo) - 44px);max-height:640px;min-height:520px}
   .env .flap{height:34%}
   .card{left:2%;right:2%;top:4%;bottom:4%;grid-template-columns:1fr;grid-template-rows:40% 60%}
   .photos{order:-1}
   .copy{padding:16px 18px 18px;justify-content:flex-start}
-  h1{font-size:23px;margin:4px 0 6px}
-  .brand{margin-bottom:6px}
+  h1{font-size:18px;margin:10px 0 6px}
+  .brand{font-size:38px;margin-bottom:0}
+  .brand .orn{margin-bottom:6px}
   .sub{margin-bottom:10px;font-size:12.5px}
   .chips{margin-bottom:12px}
   .btn{width:100%;min-height:46px}
@@ -96,9 +103,8 @@ footer{padding:14px 20px 26px;text-align:center;font-size:12px;color:var(--sub);
       <div class="back"></div>
       <div class="card">
         <div class="copy">
-          <p class="eyebrow">You are invited</p>
+          <p class="brand"><span class="orn" aria-hidden="true"></span>Cafe Holidays<small>You are invited</small></p>
           <h1 id="h1" aria-label="大切な日を、花に囲まれて。"><span>大切な日を、</span><br><span>花に囲まれて。</span></h1>
-          <p class="brand">Cafe Holidays</p>
           <p class="sub">宝塚市湯本町｜お茶会・イベントの貸切のご相談を受け付けています。</p>
           <div class="chips"><span class="chip">貸切プランあり</span><span class="chip">お茶会</span><span class="chip">イベント</span></div>
           <a class="btn" id="cta" href="https://www.instagram.com/cafeholidays_takarazuka/" target="_blank" rel="noopener">貸切をDMで相談する</a>
@@ -113,6 +119,7 @@ footer{padding:14px 20px 26px;text-align:center;font-size:12px;color:var(--sub);
       <div class="front"></div>
       <div class="flap"></div>
       <div class="seal" aria-hidden="true">H</div>
+      <div class="envname" aria-hidden="true">Cafe Holidays<small>TAKARAZUKA</small></div>
     </div>
     <p class="tap" id="tap">タップして、招待状を開く</p>
   </div>
