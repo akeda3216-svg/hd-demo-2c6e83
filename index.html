@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Cafe Holidays｜宝塚の貸切カフェ</title>
+<meta name="description" content="宝塚市湯本町のカフェ Cafe Holidays。お茶会・イベントの貸切のご相談を受け付けています。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Zen+Maru+Gothic:wght@400;500;700&family=Zen+Old+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fdf3f1;--pink:#f3b9c4;--pink2:#e98fa3;--rose:#c4566f;--ink:#4a3338;--sub:#8a6f74;--cream:#fffaf7;--demo:38px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Yu Gothic",Meiryo,sans-serif;font-size:16px;line-height:1.85;letter-spacing:.03em;overflow-x:hidden}
+a{color:inherit}
+.demo{background:var(--ink);color:#fff;font-size:12px;line-height:1.6;text-align:center;padding:8px 12px;min-height:var(--demo)}
+
+.hero{position:relative;overflow:hidden;min-height:calc(100svh - var(--demo));display:grid;place-items:center;padding:28px 18px;background:radial-gradient(ellipse at 50% 30%,#fff 0,#fdf3f1 55%,#f9dfe4 100%)}
+#petals{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.stage{position:relative;z-index:3;width:min(940px,100%);perspective:1400px}
+
+/* 封筒 */
+.env{position:relative;width:100%;aspect-ratio:16/10;max-height:calc(100svh - var(--demo) - 56px)}
+.env .back{position:absolute;inset:0;background:linear-gradient(160deg,#f7c9d2,#f1a9b8);border-radius:10px;box-shadow:0 30px 60px rgba(196,86,111,.28)}
+.env .flap{position:absolute;left:0;right:0;top:0;height:56%;transform-origin:50% 0;background:linear-gradient(180deg,#f5b7c4,#ee9fb1);clip-path:polygon(0 0,100% 0,50% 100%);z-index:6;transition:transform 1.3s cubic-bezier(.6,.05,.2,1) .2s}
+.env .front{position:absolute;inset:0;z-index:5;background:linear-gradient(160deg,#fbd5dc,#f4b3c1);clip-path:polygon(0 0,50% 52%,100% 0,100% 100%,0 100%);border-radius:10px;transition:opacity .6s ease 1.3s}
+.env .seal{position:absolute;left:50%;top:50%;width:62px;height:62px;margin:-31px 0 0 -31px;border-radius:50%;z-index:7;background:radial-gradient(circle at 35% 30%,#ef8fa4,#c4566f);box-shadow:0 4px 10px rgba(120,30,50,.35);display:grid;place-items:center;color:#fff;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:26px;transition:opacity .4s ease .1s,transform .6s ease}
+.opened .env .flap{transform:rotateX(180deg);z-index:1}
+.opened .env .front{opacity:0}
+.opened .env .seal{opacity:0;transform:scale(.4)}
+.env .back{transition:opacity .8s ease 1.4s}
+.opened .env .back{opacity:0}
+
+/* 招待状カード */
+.card{position:absolute;left:3%;right:3%;top:8%;bottom:8%;z-index:4;background:var(--cream);border-radius:14px;box-shadow:0 24px 60px rgba(196,86,111,.25);display:grid;grid-template-columns:1fr 1fr;overflow:hidden;transform:translateY(46%) scale(.92);opacity:0;transition:transform 1.5s cubic-bezier(.2,.8,.2,1) 1.2s,opacity .5s ease 1.0s}
+.opened .card{transform:none;opacity:1}
+.copy{padding:clamp(18px,4vw,48px);display:flex;flex-direction:column;justify-content:center}
+.eyebrow{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(14px,1.6vw,19px);letter-spacing:.2em;color:var(--rose)}
+h1{font-family:"Zen Old Mincho",serif;font-weight:500;font-size:clamp(21px,3.2vw,38px);line-height:1.6;letter-spacing:.1em;margin:8px 0 10px}
+h1 .ch{display:inline-block}
+.anim .opened h1 .ch{animation:ch .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(2.4s + var(--n)*60ms)}
+@keyframes ch{from{opacity:0;transform:translateY(.6em);filter:blur(4px)}}
+.brand{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:clamp(20px,2.4vw,30px);color:var(--ink);margin-bottom:10px}
+.sub{font-size:clamp(12.5px,1.25vw,15px);color:var(--sub);line-height:1.8;margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.chip{font-size:12px;border:1px solid var(--pink2);color:var(--rose);padding:1px 12px;border-radius:999px;background:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:10px 24px;background:var(--rose);color:#fff;text-decoration:none;font-weight:700;font-size:14.5px;letter-spacing:.06em;border-radius:999px;box-shadow:0 8px 20px rgba(196,86,111,.3);transition:transform .25s,box-shadow .25s;align-self:flex-start}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(196,86,111,.42)}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.btn::after{content:"→"}
+.mail{display:block;margin-top:10px;font-size:12px;color:var(--sub)}
+.mail a{border-bottom:1px solid rgba(138,111,116,.4);text-decoration:none}
+
+/* 写真（ページをめくるように切り替わる） */
+.photos{position:relative;overflow:hidden;background:#f6dfe3}
+.photos img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1.4s ease,transform 7s ease-out}
+.photos img.on{opacity:1;transform:scale(1)}
+.photos .ai{position:absolute;right:10px;bottom:8px;z-index:3;font-size:11px;color:#6a5258;background:rgba(255,255,255,.85);padding:1px 10px;border-radius:999px}
+.dots{position:absolute;left:12px;bottom:10px;z-index:3;display:flex;gap:6px}
+.dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.6);transition:all .4s}
+.dots i.on{width:20px;border-radius:4px;background:#fff}
+
+.tap{white-space:nowrap;position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:9;font-size:13px;color:var(--rose);letter-spacing:.14em;transition:opacity .5s;background:rgba(255,255,255,.8);padding:2px 16px;border-radius:999px}
+.opened .tap{opacity:0;pointer-events:none}
+.env{cursor:pointer}.opened .env{cursor:default}
+
+@media(max-width:760px){
+  .hero{padding:18px 12px}
+  .env{aspect-ratio:auto;height:calc(100svh - var(--demo) - 44px);max-height:640px;min-height:520px}
+  .env .flap{height:34%}
+  .card{left:2%;right:2%;top:4%;bottom:4%;grid-template-columns:1fr;grid-template-rows:40% 60%}
+  .photos{order:-1}
+  .copy{padding:16px 18px 18px;justify-content:flex-start}
+  h1{font-size:23px;margin:4px 0 6px}
+  .brand{margin-bottom:6px}
+  .sub{margin-bottom:10px;font-size:12.5px}
+  .chips{margin-bottom:12px}
+  .btn{width:100%;min-height:46px}
+  .mail{font-size:11.5px;margin-top:8px}
+  .env .front{clip-path:polygon(0 0,50% 34%,100% 0,100% 100%,0 100%)}
+}
+@media(max-width:760px) and (max-height:640px){.chips{display:none}.sub{margin-bottom:8px}}
+footer{padding:14px 20px 26px;text-align:center;font-size:12px;color:var(--sub);background:#fdf3f1}
+@media(prefers-reduced-motion:reduce){.env .flap,.env .front,.card,.env .seal,.env .back{transition:none}.photos img{transition:opacity .01s}.tag{animation:none}}
+</style>
+</head>
+<body>
+<div class="demo">これはCafe Holidays様向けに作ったデモ（トップページのみ・非公開の見本）です。内容はInstagramの公開情報をもとにしています。</div>
+<main>
+<section class="hero" id="hero" aria-label="Cafe Holidays トップ">
+  <canvas id="petals" aria-hidden="true"></canvas>
+  <div class="stage" id="stage">
+    <div class="env" id="env" role="button" tabindex="0" aria-label="招待状を開く">
+      <div class="back"></div>
+      <div class="card">
+        <div class="copy">
+          <p class="eyebrow">You are invited</p>
+          <h1 id="h1" aria-label="大切な日を、花に囲まれて。"><span>大切な日を、</span><br><span>花に囲まれて。</span></h1>
+          <p class="brand">Cafe Holidays</p>
+          <p class="sub">宝塚市湯本町｜お茶会・イベントの貸切のご相談を受け付けています。</p>
+          <div class="chips"><span class="chip">貸切プランあり</span><span class="chip">お茶会</span><span class="chip">イベント</span></div>
+          <a class="btn" id="cta" href="https://www.instagram.com/cafeholidays_takarazuka/" target="_blank" rel="noopener">貸切をDMで相談する</a>
+          <span class="mail">メールでも：<a href="mailto:cafeholidays.takarazuka@gmail.com">cafeholidays.takarazuka@gmail.com</a></span>
+        </div>
+        <div class="photos" id="photos" aria-hidden="true">
+          <img class="on" src="assets/h1.jpg" alt=""><img src="assets/h2.jpg" alt=""><img src="assets/h3.jpg" alt="">
+          <div class="dots"><i class="on"></i><i></i><i></i></div>
+          <span class="ai">※ イメージ（AI生成）</span>
+        </div>
+      </div>
+      <div class="front"></div>
+      <div class="flap"></div>
+      <div class="seal" aria-hidden="true">H</div>
+    </div>
+    <p class="tap" id="tap">タップして、招待状を開く</p>
+  </div>
+</section>
+</main>
+<footer>写真はAI生成のイメージです。店内の実際の写真は使用していません。利用人数・料金・設備などは、確認のうえ掲載します。</footer>
+
+<script>
+(function(){
+  var root=document.documentElement,hero=document.getElementById("hero"),env=document.getElementById("env");
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var visible=document.visibilityState==="visible";
+  if(visible&&!reduce){root.classList.add("anim");var n=0;[].slice.call(document.querySelectorAll("#h1 span")).forEach(function(sp){var t=sp.textContent;sp.textContent="";t.split("").forEach(function(c){var s=document.createElement("span");s.className="ch";s.style.setProperty("--n",n++);s.textContent=c;sp.appendChild(s)})})}
+
+  /* 招待状：タップで開く。操作がなくても、少し待つと自動で開く */
+  var done=false;
+  function open(){if(done)return;done=true;hero.classList.add("opened");env.removeAttribute("role");env.removeAttribute("tabindex");burst()}
+  env.addEventListener("click",open);
+  env.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}});
+  setTimeout(open,reduce||!visible?0:3200);
+
+  /* 写真：自動で切り替え */
+  var imgs=[].slice.call(document.querySelectorAll("#photos img")),dots=[].slice.call(document.querySelectorAll("#photos .dots i")),k=0;
+  if(!reduce)setInterval(function(){if(!done)return;imgs[k].classList.remove("on");dots[k].classList.remove("on");k=(k+1)%imgs.length;imgs[k].classList.add("on");dots[k].classList.add("on")},4200);
+
+  /* 花びら：ゆっくり舞う。開いた瞬間と、さわった場所でふわっと増える */
+  var cv=document.getElementById("petals"),cx=cv.getContext("2d"),P=[],W=0,H=0,dpr=Math.min(window.devicePixelRatio||1,2);
+  function size(){W=hero.clientWidth;H=hero.clientHeight;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0)}
+  size();window.addEventListener("resize",size);
+  var cols=["#f6b9c6","#f9d3da","#ee9db0","#ffffff","#f8c9a8"];
+  function mk(x,y,burst){return{x:x,y:y,r:6+Math.random()*9,a:Math.random()*6.28,va:(Math.random()-.5)*.03,vx:burst?(Math.random()-.5)*5:(Math.random()-.5)*.5,vy:burst?-Math.random()*4-1:.4+Math.random()*.8,c:cols[Math.random()*cols.length|0],ph:Math.random()*6.28,amb:!burst}}
+  var count=reduce?0:(W<700?16:28);
+  for(var i=0;i<count;i++)P.push(mk(Math.random()*W,Math.random()*H,false));
+  function burst(){if(reduce)return;for(var i=0;i<26;i++)P.push(mk(W/2,H*.55,true))}
+  hero.addEventListener("pointerdown",function(e){if(reduce)return;var r=hero.getBoundingClientRect();for(var i=0;i<8;i++)P.push(mk(e.clientX-r.left,e.clientY-r.top,true))});
+  function draw(){
+    cx.clearRect(0,0,W,H);
+    for(var i=P.length-1;i>=0;i--){
+      var p=P[i];p.ph+=.02;p.x+=p.vx+Math.sin(p.ph)*.6;p.y+=p.vy;if(!p.amb)p.vy+=.06;p.a+=p.va;
+      if(p.y>H+20||p.x<-40||p.x>W+40){if(p.amb){p.y=-20;p.x=Math.random()*W;p.vy=.4+Math.random()*.8}else{P.splice(i,1);continue}}
+      cx.save();cx.translate(p.x,p.y);cx.rotate(p.a);cx.scale(1,.62+.38*Math.abs(Math.sin(p.ph)));
+      cx.globalAlpha=.85;cx.fillStyle=p.c;cx.beginPath();cx.moveTo(0,-p.r);cx.bezierCurveTo(p.r*.9,-p.r*.5,p.r*.7,p.r*.7,0,p.r);cx.bezierCurveTo(-p.r*.7,p.r*.7,-p.r*.9,-p.r*.5,0,-p.r);cx.fill();cx.restore();
+    }
+    requestAnimationFrame(draw);
+  }
+  if(!reduce)requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>
