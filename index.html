@@ -89,12 +89,85 @@ h1 .ch{display:inline-block}
   .env .front{clip-path:polygon(0 0,50% 34%,100% 0,100% 100%,0 100%)}
 }
 @media(max-width:760px) and (max-height:640px){.chips{display:none}.sub{margin-bottom:8px}}
+
+/* ===== 下層 ===== */
+.sec{position:relative;max-width:1000px;margin:0 auto;padding:88px 24px}
+@media(min-width:900px){.sec{padding:116px 40px}}
+.lb{display:block;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:21px;color:var(--rose);letter-spacing:.14em;margin-bottom:6px}
+h2{font-family:"Zen Old Mincho",serif;font-weight:500;font-size:25px;line-height:1.75;letter-spacing:.1em;margin-bottom:22px}
+@media(min-width:900px){h2{font-size:32px}}
+.lead{color:var(--sub);max-width:620px}
+.note{font-size:12.5px;color:var(--sub);line-height:1.8;margin-top:14px}
+.js .fade{opacity:0;transform:translateY(20px);transition:opacity 1s ease,transform 1s ease}
+.js .fade.in{opacity:1;transform:none}
+.wave{display:block;width:100%;height:50px}
+.wave path{fill:#fff}
+.band{background:#fff}
+.bar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:8px 18px;background:rgba(255,250,247,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 3px 14px rgba(196,86,111,.18);transform:translateY(-110%);transition:transform .4s}
+.bar.show{transform:none}
+.bar .lg{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:24px;color:var(--rose);text-decoration:none}
+.bar nav{display:none;gap:22px;font-size:13px;letter-spacing:.08em}
+.bar nav a{text-decoration:none;color:var(--sub)}
+.bar .btn{min-height:40px;padding:6px 18px;font-size:13px;box-shadow:none;align-self:auto}
+@media(min-width:900px){.bar nav{display:flex}.bar{padding:8px 40px}}
+
+.scenes{display:grid;gap:16px;margin-top:6px}
+@media(min-width:760px){.scenes{grid-template-columns:repeat(3,1fr)}}
+.sc{background:var(--cream);border:1px solid #f4d5db;border-radius:22px;padding:26px 22px;position:relative;overflow:hidden}
+.sc::after{content:"";position:absolute;right:-26px;top:-26px;width:90px;height:90px;border-radius:50%;background:var(--pink);opacity:.35}
+.sc .no{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:30px;color:var(--pink2);line-height:1}
+.sc h3{font-family:"Zen Old Mincho",serif;font-weight:700;font-size:19px;margin:6px 0 8px;letter-spacing:.06em;position:relative;z-index:1}
+.sc p{font-size:15px;color:var(--sub);line-height:1.9;position:relative;z-index:1}
+
+.space{display:grid;gap:12px}
+@media(min-width:760px){.space{grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr}.space .big{grid-row:span 2}}
+.ph{position:relative;overflow:hidden;border-radius:20px;min-height:200px}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 2s ease}
+.ph:hover img{transform:scale(1.05)}
+.ph small{position:absolute;left:10px;bottom:8px;font-size:11px;color:#6a5258;background:rgba(255,255,255,.85);padding:1px 10px;border-radius:999px}
+.space .big{min-height:300px}
+
+.steps{list-style:none;counter-reset:s;display:grid;gap:14px;max-width:720px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:50px 1fr;gap:16px;align-items:start;background:var(--cream);border:1px solid #f4d5db;border-radius:20px;padding:18px 20px}
+.steps li::before{content:counter(s);width:50px;height:50px;border-radius:50%;display:grid;place-items:center;background:var(--pink);font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:24px;color:#fff}
+.steps b{display:block;font-family:"Zen Old Mincho",serif;font-size:17px}
+.steps span{color:var(--sub);font-size:15px;line-height:1.8}
+.tbd{margin-top:20px;border:1.5px dashed var(--pink2);border-radius:18px;padding:16px 20px;background:rgba(255,255,255,.7);font-size:14.5px;color:#6a5258;max-width:720px}
+.tbd b{color:var(--rose)}
+
+.contact{background:linear-gradient(135deg,#fbd9e0,#f6bfcb);border-radius:26px;padding:30px 26px;display:grid;gap:14px;max-width:720px}
+.contact b{font-family:"Zen Old Mincho",serif;font-size:20px}
+.contact p{font-size:15px;color:#6a4350}
+.contact .btn{align-self:flex-start}
+.contact .mail{color:#6a4350;font-size:13.5px;margin-top:0}
+
+details{border-bottom:1px solid #f1d3d9;padding:2px 0}
+details:first-of-type{border-top:1px solid #f1d3d9}
+summary{list-style:none;cursor:pointer;padding:18px 40px 18px 0;position:relative;font-family:"Zen Old Mincho",serif;font-weight:700;min-height:48px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:6px;top:12px;font-size:26px;color:var(--pink2);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 18px;color:var(--sub);font-size:15px}
+
+.acc{display:grid;grid-template-columns:96px 1fr;max-width:660px;border-top:1px solid #f1d3d9}
+.acc dt,.acc dd{padding:15px 0;border-bottom:1px solid #f1d3d9}
+.acc dt{color:var(--rose);font-size:14px;font-weight:700}
+.acc dd{font-size:15px}
+.acc a{color:var(--rose)}
+.last{text-align:center;padding-bottom:100px}
+.last .lead{margin:0 auto 24px}
+.last .btn{align-self:auto}
+.ps{margin:34px auto 0;max-width:540px;text-align:left;border-top:1px solid #f1d3d9;padding-top:20px;color:var(--sub);font-size:15px}
+.ps b{font-family:"Zen Old Mincho",serif;color:var(--ink)}
+@media(prefers-reduced-motion:reduce){.js .fade{opacity:1;transform:none;transition:none}.ph:hover img{transform:none}}
+
 footer{padding:14px 20px 26px;text-align:center;font-size:12px;color:var(--sub);background:#fdf3f1}
 @media(prefers-reduced-motion:reduce){.env .flap,.env .front,.card,.env .seal,.env .back{transition:none}.photos img{transition:opacity .01s}.tag{animation:none}}
 </style>
 </head>
 <body>
-<div class="demo">これはCafe Holidays様向けに作ったデモ（トップページのみ・非公開の見本）です。内容はInstagramの公開情報をもとにしています。</div>
+<div class="demo">これはCafe Holidays様向けに作ったデモ（非公開の見本）です。内容はInstagramの公開情報をもとにしています。</div>
+<div class="bar" id="bar"><a class="lg" href="#hero">Cafe Holidays</a><nav aria-label="ページ内メニュー"><a href="#scene">こんな日に</a><a href="#space">空間</a><a href="#flow">ご利用の流れ</a><a href="#faq">質問</a><a href="#access">アクセス</a></nav><a class="btn" data-cta href="https://www.instagram.com/cafeholidays_takarazuka/" target="_blank" rel="noopener">DMで相談</a></div>
 <main>
 <section class="hero" id="hero" aria-label="Cafe Holidays トップ">
   <canvas id="petals" aria-hidden="true"></canvas>
@@ -124,8 +197,96 @@ footer{padding:14px 20px 26px;text-align:center;font-size:12px;color:var(--sub);
     <p class="tap" id="tap">タップして、招待状を開く</p>
   </div>
 </section>
+
+<svg class="wave" viewBox="0 0 1200 50" preserveAspectRatio="none" aria-hidden="true"><path d="M0,50 L0,25 C150,0 300,50 450,25 C600,0 750,50 900,25 C1020,5 1110,25 1200,18 L1200,50 Z"/></svg>
+<div class="band">
+<section class="sec" id="scene">
+  <span class="lb fade">scene</span>
+  <h2 class="fade">こんな日に、<br>貸し切りませんか。</h2>
+  <p class="lead fade">現在、Cafe Holidaysは、お茶会やイベントの貸切で営業しています。ご予約は、DMまたはメールで受け付けています。</p>
+  <div class="scenes" style="margin-top:30px">
+    <div class="sc fade"><span class="no">01</span><h3>お茶会</h3><p>お友達や、教室の仲間と。花に囲まれて、ゆっくりお茶とお菓子を楽しむ時間に。</p></div>
+    <div class="sc fade"><span class="no">02</span><h3>イベント・ワークショップ</h3><p>趣味の集まりや、小さな発表会、ワークショップなど。主催される方のご希望を、うかがいます。</p></div>
+    <div class="sc fade"><span class="no">03</span><h3>ちょっとしたお祝い</h3><p>誕生日や、記念日の集まりなど。ご希望の内容は、ご相談ください。</p></div>
+  </div>
+  <p class="note fade">※ ご利用の例は、Instagramの貸切のご案内をもとにした下書きです。実際にお受けできる内容は、お店にご確認のうえ掲載します。</p>
+</section>
+</div>
+
+<section class="sec" id="space">
+  <span class="lb fade">space</span>
+  <h2 class="fade">白と花に包まれた、<br>やさしい空間。</h2>
+  <div class="space fade">
+    <div class="ph big"><img src="assets/h1.jpg" alt="" loading="lazy"><small>※ イメージ（AI生成）</small></div>
+    <div class="ph"><img src="assets/h2.jpg" alt="" loading="lazy" style="object-position:50% 20%"><small>※ イメージ（AI生成）</small></div>
+    <div class="ph"><img src="assets/h3.jpg" alt="" loading="lazy"><small>※ イメージ（AI生成）</small></div>
+  </div>
+  <p class="note fade">※ 写真はAI生成のイメージです。正式版では、お店のお写真に差し替えます。</p>
+</section>
+
+<div class="band">
+<section class="sec" id="flow">
+  <span class="lb fade">flow</span>
+  <h2 class="fade">ご利用の流れ</h2>
+  <ol class="steps">
+    <li class="fade"><div><b>DMまたはメールで相談</b><span>ご希望の日にちと、ご利用の内容（お茶会・イベントなど）、おおよその人数をお知らせください。</span></div></li>
+    <li class="fade"><div><b>日程とご内容の確認</b><span>空き状況と、ご希望の内容を確認して、お返事します。</span></div></li>
+    <li class="fade"><div><b>お打ち合わせ・ご予約</b><span>当日の流れや、メニューなどを、ご相談のうえ決めます。</span></div></li>
+    <li class="fade"><div><b>当日</b><span>花に囲まれた空間で、ごゆっくりお過ごしください。</span></div></li>
+  </ol>
+  <div class="tbd fade"><b>ご利用人数・料金・設備について：</b>お店にご確認のうえ、こちらに掲載します（このデモでは、未掲載です）。</div>
+  <p class="note fade">※ 流れは、一般的な貸切の手順をもとにした下書きです。実際の流れは、お店にご確認のうえ、整えます。</p>
+</section>
+</div>
+
+<section class="sec" id="contact">
+  <span class="lb fade">contact</span>
+  <h2 class="fade">ご相談は、<br>DMまたはメールで。</h2>
+  <div class="contact fade">
+    <b>貸切のご相談・ご予約</b>
+    <p>ご希望の日にち、ご利用の内容、人数をお知らせください。</p>
+    <a class="btn" data-cta href="https://www.instagram.com/cafeholidays_takarazuka/" target="_blank" rel="noopener">貸切をDMで相談する</a>
+    <span class="mail">メールでも：<a href="mailto:cafeholidays.takarazuka@gmail.com" style="color:#6a4350">cafeholidays.takarazuka@gmail.com</a></span>
+  </div>
+</section>
+
+<div class="band">
+<section class="sec" id="faq">
+  <span class="lb fade">q&amp;a</span>
+  <h2 class="fade">よくあるご質問</h2>
+  <div class="fade">
+    <details><summary>通常営業はしていますか？</summary><p>現在は、イベント貸切のみで営業しています。最新の情報は、Instagramでお知らせします。</p></details>
+    <details><summary>貸切の予約は、どこでできますか？</summary><p>InstagramのDM、またはメール（cafeholidays.takarazuka@gmail.com）で、受け付けています。</p></details>
+    <details><summary>人数や料金は？</summary><p>ご利用の内容によって、異なります。お問い合わせください。</p></details>
+    <details><summary>貸切プランの内容を知りたいです</summary><p>Instagramのハイライト「貸切プラン」でも、ご案内しています。</p></details>
+  </div>
+</section>
+</div>
+
+<section class="sec" id="access">
+  <span class="lb fade">access</span>
+  <h2 class="fade">お店の場所</h2>
+  <dl class="acc fade">
+    <dt>店名</dt><dd>Cafe Holidays（カフェ ホリデイズ）</dd>
+    <dt>所在地</dt><dd>兵庫県宝塚市湯本町1-34<br><a href="https://www.google.com/maps/search/?api=1&query=%E5%85%B5%E5%BA%AB%E7%9C%8C%E5%AE%9D%E5%A1%9A%E5%B8%82%E6%B9%AF%E6%9C%AC%E7%94%BA1-34" target="_blank" rel="noopener">地図を開く →</a></dd>
+    <dt>ご利用</dt><dd>イベント貸切（現在）</dd>
+    <dt>電話</dt><dd>0797-69-8688</dd>
+    <dt>ご相談</dt><dd>InstagramのDM／メール</dd>
+  </dl>
+  <p class="note fade">※ 住所・電話は公開情報（地図）をもとにしています。最寄り駅・駐車場などは、確認のうえ掲載します。</p>
+</section>
+
+<div class="band">
+<section class="sec last" id="reserve">
+  <span class="lb fade">welcome</span>
+  <h2 class="fade">大切な日を、<br>一緒に。</h2>
+  <p class="lead fade">貸切のご相談は、DMまたはメールで、お気軽にどうぞ。</p>
+  <a class="btn fade" data-cta href="https://www.instagram.com/cafeholidays_takarazuka/" target="_blank" rel="noopener">貸切をDMで相談する</a>
+  <p class="ps fade"><b>追伸。</b>「まだ日にちが決まっていない」「人数が未定」でも大丈夫です。わかる範囲で、お知らせください。</p>
+</section>
+</div>
 </main>
-<footer>写真はAI生成のイメージです。店内の実際の写真は使用していません。利用人数・料金・設備などは、確認のうえ掲載します。</footer>
+<footer>写真はAI生成のイメージです。店内の実際の写真は使用していません。ご利用人数・料金・設備・営業情報などは、確認のうえ掲載します。</footer>
 
 <script>
 (function(){
@@ -166,6 +327,17 @@ footer{padding:14px 20px 26px;text-align:center;font-size:12px;color:var(--sub);
     requestAnimationFrame(draw);
   }
   if(!reduce)requestAnimationFrame(draw);
+  /* 下層：バー、スクロール出現 */
+  var bar=document.getElementById("bar");
+  var sc=function(){bar.classList.toggle("show",window.scrollY>hero.offsetHeight*.7)};
+  window.addEventListener("scroll",sc,{passive:true});sc();
+  var fades=document.querySelectorAll(".fade");
+  if("IntersectionObserver" in window&&visible){
+    root.classList.add("js");
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{rootMargin:"0px 0px -8% 0px"});
+    fades.forEach(function(el){io.observe(el)});
+    setTimeout(function(){fades.forEach(function(el){el.classList.add("in")})},5000);
+  }
 })();
 </script>
 </body>
